@@ -6,7 +6,7 @@ def save_prediction(length, voltage, duration, prediction, probability):
     cursor = conn.cursor()
 
     cursor.execute(
-        "INSERT INTO predictions (length, voltage, duration, prediction, probability) VALUES (%s,%s,%s,%s,%s)",
+        "INSERT INTO predictions (length, voltage, duration, prediction, probability) VALUES (?,?,?,?,?)",
         (length, voltage, duration, prediction, probability)
     )
 

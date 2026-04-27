@@ -12,7 +12,7 @@ def register_user(username, password):
 
     try:
         cursor.execute(
-            "INSERT INTO users (username, password) VALUES (%s, %s)",
+            "INSERT INTO users (username, password) VALUES (?, ?)",
             (username, hashed)
         )
         conn.commit()
@@ -30,7 +30,7 @@ def login_user(username, password):
     hashed = hash_password(password)
 
     cursor.execute(
-        "SELECT * FROM users WHERE username=%s AND password=%s",
+        "SELECT * FROM users WHERE username=? AND password=?",
         (username, hashed)
     )
 
